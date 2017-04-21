@@ -555,9 +555,13 @@ ImageLibrary.prototype.viewImage = function(songEntry, offset) {
   this.curImageInfo = songEntry;
   this.updatePlayingEntry(this.curImageInfo, true);
   var path = this.getFilePath(this.curImageInfo);
+  effect('[role="album-cover"]', function (el) {
+    el.style.backgroundColor = "black";
+  });
   effect('[role="background-cover"]', function (el) {
       el.style.backgroundImage = 'url("' + path + '")';
   });
+  
   this.toggleNowPlaying(true, false);
   
 }
